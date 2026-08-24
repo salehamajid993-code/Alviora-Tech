@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alviora Technologies | Learn. Build. Innovate. Lead.</title>
+<meta name="description" content="Alviora Technologies bridges the gap between academic learning and real-world industry requirements through practical training, real projects and industry exposure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep-navy:#061B3A;
+  --navy:#0B2855;
+  --navy-soft:#0E2E62;
+  --electric:#1677FF;
+  --cyan:#06D6E8;
+  --light-blue:#60A5FA;
+  --white:#FFFFFF;
+  --gray:#CBD5E1;
+  --gray-dim:#8CA0BE;
+  --border:rgba(203,213,225,0.14);
+  --glass:rgba(11,40,85,0.45);
+  --radius:14px;
+  --maxw:1240px;
+  --ease:cubic-bezier(.22,.8,.32,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--deep-navy);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;letter-spacing:-0.02em;}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{position:relative;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--cyan);margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:18px;height:1px;background:var(--cyan);display:inline-block;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
+.section-head p{color:var(--gray);font-size:16px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 28px;border-radius:8px;font-weight:600;font-size:15px;
+  cursor:pointer;border:1px solid transparent;transition:all .25s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--electric),var(--cyan));
+  color:#04122A;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(6,214,232,0.5);}
+.btn-outline{
+  border:1px solid var(--border);color:var(--white);background:rgba(255,255,255,0.02);
+}
+.btn-outline:hover{border-color:var(--cyan);background:rgba(6,214,232,0.06);}
+.btn-sm{padding:10px 18px;font-size:13px;}
+
+/* ---------- NAV ---------- */
+/* ---------- NAV ---------- */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(6,27,58,0.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;max-width:var(--maxw);margin:0 auto;gap:20px;
+}
+.brand{
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+  text-decoration:none;
+}
+.brand-logo-icon{
+  width:38px;height:38px;flex-shrink:0;
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-text .name{
+  font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;
+  letter-spacing:0.12em;color:var(--white);
+}
+.brand-text .sub{
+  font-family:'JetBrains Mono',monospace;font-size:8.5px;
+  letter-spacing:0.25em;color:var(--cyan);margin-top:2px;
+}
+.nav-links{
+  display:flex;align-items:center;gap:22px;flex:1;
+  justify-content:center;margin:0 10px;
+}
+.nav-links a{
+  font-size:13px;color:var(--gray);font-weight:500;
+  transition:color .2s;position:relative;white-space:nowrap;padding:4px 0;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px;transition:.25s;}
+.mobile-menu{
+  display:none;position:fixed;inset:0 0 0 0;top:66px;
+  background:var(--deep-navy);z-index:199;padding:24px 32px;
+  flex-direction:column;gap:22px;overflow-y:auto;
+}
+.mobile-menu a{font-size:16px;font-weight:600;}
+.mobile-menu.open{display:flex;}
+
+@media(max-width:1120px){
+  .nav-links{display:none;}
+  .nav-cta .btn-outline{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:120px 0 100px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(22,119,255,0.22), transparent 45%),
+    radial-gradient(circle at 85% 12%, rgba(6,214,232,0.16), transparent 40%),
+    linear-gradient(180deg,var(--deep-navy),var(--navy) 140%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 65%);
+  opacity:0.5;
+}
+.hero-inner{position:relative;text-align:center;max-width:820px;margin:0 auto;padding:0 32px;}
+.hero h1{font-size:clamp(38px,6.4vw,72px);line-height:1.05;margin-bottom:22px;}
+.hero h1 .grad{background:linear-gradient(120deg,var(--cyan),var(--light-blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p.lead{font-size:18px;color:var(--gray);max-width:600px;margin:0 auto 38px;}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:70px;}
+.hero-visual{
+  position:relative;max-width:920px;margin:0 auto;border-radius:20px;overflow:hidden;
+  border:1px solid var(--border);background:linear-gradient(160deg,rgba(14,46,98,0.7),rgba(6,27,58,0.9));
+  box-shadow:0 40px 100px -30px rgba(0,0,0,0.6);
+}
+.hero-visual-inner{padding:34px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:0;min-height:340px;}
+.code-pane{
+  background:#04122a;border-radius:12px;padding:22px 24px;font-family:'JetBrains Mono',monospace;font-size:12.5px;
+  color:var(--gray);position:relative;overflow:hidden;text-align:left;
+}
+.code-pane .dots{display:flex;gap:6px;margin-bottom:16px;}
+.code-pane .dots span{width:9px;height:9px;border-radius:50%;background:#3a4a68;}
+.code-pane .ln{opacity:0;animation:typeIn .5s var(--ease) forwards;}
+.code-pane .kw{color:var(--light-blue);} .code-pane .fn{color:var(--cyan);} .code-pane .str{color:#7CE3B4;} .code-pane .cm{color:#5b7196;}
+@keyframes typeIn{to{opacity:1;}}
+.orbit-pane{display:flex;align-items:center;justify-content:center;position:relative;}
+.orbit{position:relative;width:220px;height:220px;}
+.orbit-core{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:70px;height:70px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--cyan), var(--electric));
+  box-shadow:0 0 50px 6px rgba(6,214,232,0.45);
+}
+.orbit-ring{position:absolute;inset:0;border:1px solid var(--border);border-radius:50%;}
+.orbit-ring.r2{inset:26px;border-color:rgba(96,165,250,0.25);animation:spin 16s linear infinite;}
+.orbit-ring.r1{animation:spin 22s linear infinite reverse;}
+.orbit-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--light-blue);box-shadow:0 0 12px var(--light-blue);}
+.orbit-ring.r1 .orbit-dot{top:-5px;left:50%;margin-left:-5px;}
+.orbit-ring.r2 .orbit-dot{bottom:-5px;left:50%;margin-left:-5px;background:var(--cyan);box-shadow:0 0 12px var(--cyan);}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:760px){.hero-visual-inner{grid-template-columns:1fr;gap:22px;}.orbit-pane{display:none;}}
+
+/* trust strip */
+.trust-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  margin-top:56px;max-width:920px;margin-left:auto;margin-right:auto;
+}
+.trust-item{background:var(--deep-navy);padding:20px 14px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.08em;color:var(--gray);text-transform:uppercase;}
+@media(max-width:700px){.trust-strip{grid-template-columns:repeat(2,1fr);}}
+
+/* ---------- GENERIC CARDS ---------- */
+.section{padding:100px 0;}
+.section.alt{background:linear-gradient(180deg,var(--navy) 0%, var(--deep-navy) 100%);}
+.card-grid{display:grid;gap:24px;}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+@media(max-width:960px){.grid-4{grid-template-columns:repeat(2,1fr);}.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);
+  padding:30px 26px;transition:transform .3s var(--ease), border-color .3s, box-shadow .3s;
+  backdrop-filter:blur(6px);
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(6,214,232,0.4);box-shadow:0 20px 50px -20px rgba(6,214,232,0.25);}
+.icon-box{
+  width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(22,119,255,0.18),rgba(6,214,232,0.18));border:1px solid var(--border);
+  margin-bottom:18px;
+}
+.icon-box svg{width:22px;height:22px;stroke:var(--cyan);}
+.card h3{font-size:17px;margin-bottom:10px;}
+.card p{color:var(--gray);font-size:14.5px;}
+.tag{
+  display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.06em;
+  padding:4px 10px;border-radius:20px;background:rgba(6,214,232,0.1);color:var(--cyan);border:1px solid rgba(6,214,232,0.25);
+  text-transform:uppercase;
+}
+
+/* ---------- ABOUT ---------- */
+.about-flow{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:36px 0 48px;}
+.flow-step{
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:10px 16px;border:1px solid var(--border);
+  border-radius:30px;color:var(--gray);background:rgba(255,255,255,0.02);
+}
+.flow-arrow{color:var(--cyan);font-size:16px;}
+.mvv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:20px;}
+.mvv-card{border:1px solid var(--border);border-radius:var(--radius);padding:28px;background:linear-gradient(160deg,rgba(14,46,98,0.5),transparent);}
+.mvv-card h4{color:var(--cyan);font-size:12px;letter-spacing:0.12em;margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
+.mvv-card p{color:var(--gray);font-size:15px;}
+.values-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+.value-pill{border:1px solid var(--border);padding:9px 16px;border-radius:8px;font-size:13.5px;color:var(--white);background:rgba(255,255,255,0.02);}
+@media(max-width:760px){.mvv-grid{grid-template-columns:1fr;}}
+
+/* ---------- PROGRAMS ---------- */
+.program-card{position:relative;overflow:hidden;}
+.program-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--electric),var(--cyan));
+}
+.program-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;font-size:12px;color:var(--gray-dim);font-family:'JetBrains Mono',monospace;}
+.program-meta span{border:1px solid var(--border);border-radius:6px;padding:4px 9px;}
+.tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 18px;}
+.tech-tags span{font-size:11.5px;background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:4px 9px;border-radius:6px;color:var(--gray);}
+
+/* timeline */
+.timeline{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.timeline-step{display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;min-width:110px;}
+.timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan);margin-bottom:10px;}
+.timeline-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.06em;color:var(--gray);text-transform:uppercase;}
+.timeline-line{flex:1;height:1px;background:linear-gradient(90deg,var(--electric),var(--cyan));min-width:20px;margin-top:-30px;opacity:0.5;}
+
+/* ---------- PROJECTS ---------- */
+.project-card{display:flex;flex-direction:column;height:100%;}
+.project-card .status{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.project-card .links{display:flex;gap:14px;margin-top:auto;padding-top:16px;font-size:13px;color:var(--light-blue);}
+.project-card .links a{border-bottom:1px solid transparent;}
+.project-card .links a:hover{border-color:var(--light-blue);}
+.project-card dl{margin:14px 0;font-size:13.5px;}
+.project-card dt{color:var(--gray-dim);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;margin-top:8px;}
+.project-card dd{color:var(--gray);}
+
+/* ---------- INDUSTRY / JOURNEY VERTICAL ---------- */
+.vjourney{position:relative;max-width:640px;margin:0 auto;padding-left:36px;}
+.vjourney::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--electric),var(--cyan));}
+.vstep{position:relative;padding-bottom:34px;}
+.vstep:last-child{padding-bottom:0;}
+.vstep::before{content:'';position:absolute;left:-36px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--deep-navy);border:2px solid var(--cyan);box-shadow:0 0 12px rgba(6,214,232,0.5);}
+.vstep h4{font-size:15.5px;margin-bottom:4px;}
+.vstep p{color:var(--gray);font-size:13.5px;}
+.disclaimer-box{
+  margin-top:44px;padding:20px 24px;border:1px solid rgba(96,165,250,0.3);border-radius:10px;
+  background:rgba(22,119,255,0.06);font-size:13.5px;color:var(--gray);
+}
+
+/* ---------- PARTNER FORM ---------- */
+.partner-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.benefit-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.benefit-item{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--gray);}
+.benefit-item svg{flex-shrink:0;width:18px;height:18px;stroke:var(--cyan);margin-top:2px;}
+form{display:flex;flex-direction:column;gap:16px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+label{display:block;font-size:12.5px;color:var(--gray-dim);margin-bottom:6px;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+input,select,textarea{
+  width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;color:var(--white);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .2s;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
+textarea{resize:vertical;min-height:90px;}
+@media(max-width:900px){.partner-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+
+/* ---------- LOGO NETWORK ---------- */
+.logo-strip{
+  border:1px dashed var(--border);border-radius:var(--radius);padding:50px 30px;text-align:center;color:var(--gray-dim);
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+}
+
+/* ---------- EVENTS ---------- */
+.event-card{display:flex;flex-direction:column;height:100%;}
+.event-date{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12.5px;margin-bottom:10px;}
+.empty-state{
+  text-align:center;padding:60px 20px;border:1px dashed var(--border);border-radius:var(--radius);color:var(--gray-dim);
+}
+
+/* ---------- BLOG ---------- */
+.blog-card{overflow:hidden;padding:0;}
+.blog-thumb{height:150px;background:linear-gradient(135deg,rgba(22,119,255,0.35),rgba(6,214,232,0.2));display:flex;align-items:center;justify-content:center;}
+.blog-body{padding:22px 24px;}
+.blog-meta{display:flex;gap:10px;font-size:11.5px;color:var(--gray-dim);font-family:'JetBrains Mono',monospace;margin-bottom:10px;text-transform:uppercase;}
+
+/* ---------- TESTIMONIALS ---------- */
+.testi-card{position:relative;}
+.testi-quote{font-size:15px;color:var(--gray);font-style:italic;margin-bottom:20px;}
+.testi-person{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--electric),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#04122A;}
+.testi-name{font-size:14px;font-weight:600;}
+.testi-role{font-size:12px;color:var(--gray-dim);}
+
+/* ---------- CONCEPT / FUTURE ---------- */
+.coming-soon{
+  display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;
+  padding:5px 12px;border-radius:20px;background:rgba(96,165,250,0.12);color:var(--light-blue);border:1px solid rgba(96,165,250,0.3);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.match-flow{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:36px 0;text-align:center;}
+.match-box{border:1px solid var(--border);border-radius:12px;padding:20px 26px;background:rgba(255,255,255,0.02);min-width:150px;}
+.match-box h5{font-size:12.5px;color:var(--gray);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
+.match-arrow{font-size:20px;color:var(--cyan);}
+.dash-mock{
+  border:1px solid var(--border);border-radius:14px;background:linear-gradient(160deg,rgba(14,46,98,0.6),rgba(6,27,58,0.9));
+  padding:24px;display:grid;grid-template-columns:180px 1fr;gap:22px;
+}
+.dash-mock .sidebar{display:flex;flex-direction:column;gap:10px;}
+.dash-mock .sidebar a{font-size:12.5px;color:var(--gray);padding:8px 10px;border-radius:6px;}
+.dash-mock .sidebar a.active{background:rgba(6,214,232,0.1);color:var(--cyan);}
+.dash-mock .content{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.dash-tile{border:1px solid var(--border);border-radius:10px;padding:16px;background:rgba(255,255,255,0.02);}
+.dash-tile h6{font-size:12px;color:var(--gray-dim);margin-bottom:8px;font-family:'JetBrains Mono',monospace;}
+.dash-tile .val{font-size:20px;font-weight:700;}
+@media(max-width:760px){.dash-mock{grid-template-columns:1fr;}.dash-mock .content{grid-template-columns:1fr 1fr;}}
+
+/* ---------- CERT VERIFY ---------- */
+.verify-box{
+  max-width:560px;margin:0 auto;border:1px solid var(--border);border-radius:var(--radius);padding:36px;
+  background:linear-gradient(160deg,rgba(14,46,98,0.6),rgba(6,27,58,0.9));text-align:center;
+}
+.verify-input-row{display:flex;gap:10px;margin-top:20px;}
+.verify-input-row input{flex:1;}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;padding:22px 4px;cursor:pointer;font-size:15.5px;font-weight:600;
+}
+.faq-q .plus{font-size:20px;color:var(--cyan);transition:transform .3s;flex-shrink:0;margin-left:16px;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);}
+.faq-a p{padding:0 4px 22px;color:var(--gray);font-size:14.5px;max-width:700px;}
+
+/* ---------- CONTACT ---------- */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+.contact-cards{display:flex;flex-direction:column;gap:14px;margin-bottom:30px;}
+.contact-mini{border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.02);}
+.contact-mini .role{font-size:13.5px;font-weight:600;}
+.contact-mini .email{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);}
+.social-row{display:flex;gap:12px;margin-top:20px;}
+.social-row a{width:38px;height:38px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.social-row a:hover{border-color:var(--cyan);}
+.social-row svg{width:16px;height:16px;stroke:var(--gray);}
+@media(max-width:900px){.contact-layout{grid-template-columns:1fr;}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy);border-top:1px solid var(--border);padding:70px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+.footer-brand p{color:var(--gray-dim);font-size:13.5px;margin-top:14px;max-width:260px;}
+.footer-col h5{font-size:12.5px;letter-spacing:0.1em;color:var(--cyan);text-transform:uppercase;margin-bottom:18px;font-family:'JetBrains Mono',monospace;}
+.footer-col a{display:block;font-size:13.5px;color:var(--gray);margin-bottom:11px;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:26px;border-top:1px solid var(--border);font-size:12.5px;color:var(--gray-dim);}
+.legal-links{display:flex;gap:18px;flex-wrap:wrap;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* signature divider (ribbon motif from logo) */
+.ribbon-divider{height:2px;width:100%;position:relative;overflow:hidden;margin:0;background:transparent;}
+.ribbon-divider::before{
+  content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent);
+  animation:ribbonMove 6s linear infinite;
+}
+@keyframes ribbonMove{0%{transform:translateX(-40%);}100%{transform:translateX(40%);}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+}
+/* ---------- PROGRAM MODAL ---------- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(4, 18, 42, 0.85);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  z-index: 999; display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease);
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-container {
+  background: var(--navy); border: 1px solid var(--border); border-radius: 18px;
+  max-width: 720px; width: 100%; max-height: 85vh; overflow-y: auto;
+  padding: 32px; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  transform: translateY(20px); transition: transform 0.3s var(--ease);
+}
+.modal-overlay.active .modal-container { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border); color: var(--white); width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; font-size: 18px; display: flex;
+  align-items: center; justify-content: center; transition: all 0.2s;
+}
+.modal-close:hover { background: var(--cyan); color: #04122A; }
+.curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.curriculum-card {
+  background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+  padding: 16px; border-radius: 10px;
+}
+.curriculum-card h5 { color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 13px; margin-bottom: 6px; }
+.curriculum-card ul { list-style: none; padding: 0; font-size: 13px; color: var(--gray); }
+.curriculum-card li { margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+.curriculum-card li::before { content: '▹'; color: var(--cyan); }
+@media(max-width: 600px){ .curriculum-grid { grid-template-columns: 1fr; } }
+
+/* Modal Overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 13, 33, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: #0b192e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 40px;
+  color: #e2e8f0;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 28px;
+  cursor: pointer;
+}
+.close-btn:hover { color: #fff; }
+
+/* Content Typography */
+.badge {
+  color: #38bdf8;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.guide-header h1 { margin: 10px 0; color: #fff; font-size: 28px; }
+.subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
+.guide-body section { margin-bottom: 24px; }
+.guide-body h3 { color: #38bdf8; margin-bottom: 8px; }
+
+/* Inner Grid */
+.stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+.stack-card { background: rgba(255,255,255,0.03); padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav">
+    <a href="#home" class="brand">
+      <!-- Modern Styled SVG Logo Vector -->
+      <svg class="brand-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 12 L15 82 L38 82 L50 56 L62 82 L85 82 Z" fill="url(#blue-grad)"/>
+        <path d="M28 62 C 45 42, 75 42, 92 52 C 78 58, 48 58, 28 62 Z" fill="url(#cyan-grad)"/>
+        <defs>
+          <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1677FF"/>
+            <stop offset="100%" stop-color="#0B2855"/>
+          </linearGradient>
+          <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#06D6E8"/>
+            <stop offset="100%" stop-color="#1677FF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="brand-text">
+        <span class="name">ALVIORA</span>
+        <span class="sub">TECHNOLOGIES</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#projects">Projects</a>
+      <a href="#industry">Industry Exposure</a>
+      <a href="#partners">Partners</a>
+      <a href="#events">Events</a>
+      <a href="#blog">Blog</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#partners" class="btn btn-outline btn-sm">Partner With Us</a>
+      <a href="#programs" class="btn btn-primary btn-sm">Join Alviora</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#projects">Projects</a>
+    <a href="#industry">Industry Exposure</a>
+    <a href="#partners">Partners</a>
+    <a href="#events">Events</a>
+    <a href="#blog">Blog</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="#programs" class="btn btn-primary" style="margin-top:10px;">Join Alviora</a>
+  </div>
+</header>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="eyebrow" style="justify-content:center;">Practical Technology Training</div>
+    <h1>Learn. Build. <span class="grad">Innovate.</span> Lead.</h1>
+    <p class="lead">Bridging the gap between learning and industry. Alviora Technologies helps aspiring technology professionals develop practical skills, build real-world projects and prepare for meaningful industry opportunities.</p>
+    <div class="hero-ctas">
+      <a href="#programs" class="btn btn-primary">Explore Programs</a>
+      <a href="#partners" class="btn btn-outline">Partner With Us</a>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-visual-inner">
+        <div class="code-pane">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="ln" style="animation-delay:.1s"><span class="cm">// alviora / student_project.py</span></div>
+          <div class="ln" style="animation-delay:.3s"><span class="kw">from</span> alviora.automation <span class="kw">import</span> <span class="fn">Pipeline</span></div>
+          <div class="ln" style="animation-delay:.5s">&nbsp;</div>
+          <div class="ln" style="animation-delay:.7s">pipeline = <span class="fn">Pipeline</span>(</div>
+          <div class="ln" style="animation-delay:.9s">&nbsp;&nbsp;stack=[<span class="str">"react"</span>, <span class="str">"python"</span>, <span class="str">"ai"</span>],</div>
+          <div class="ln" style="animation-delay:1.1s">&nbsp;&nbsp;mode=<span class="str">"project-based"</span></div>
+          <div class="ln" style="animation-delay:1.3s">)</div>
+          <div class="ln" style="animation-delay:1.5s">&nbsp;</div>
+          <div class="ln" style="animation-delay:1.7s">pipeline.<span class="fn">build</span>().<span class="fn">assess</span>().<span class="fn">deploy</span>()</div>
+        </div>
+        <div class="orbit-pane">
+          <div class="orbit">
+            <div class="orbit-ring r1"><div class="orbit-dot"></div></div>
+            <div class="orbit-ring r2"><div class="orbit-dot"></div></div>
+            <div class="orbit-core"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-strip reveal">
+      <div class="trust-item">Practical Learning</div>
+      <div class="trust-item">Real Projects</div>
+      <div class="trust-item">Industry Exposure</div>
+      <div class="trust-item">Skill Assessment</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE DO ================= -->
+<section class="section" id="what-we-do">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2>Four pillars of a practical technology education</h2>
+      <p>Everything at Alviora is built around applying knowledge — not just acquiring it.</p>
+    </div>
+    <div class="card-grid grid-4">
+      <div class="card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></div>
+        <h3>Technology Training</h3>
+        <p>Practical learning in modern technologies, taught the way they're actually used in the industry.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
+        <h3>Project-Based Learning</h3>
+        <p>Learners build real applications from day one, turning concepts into working software.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+        <h3>Industry Exposure</h3>
+        <p>Connecting suitable learners with project and internship opportunities where available.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M8 15h2M13 15h3"/></svg></div>
+        <h3>Technology & Automation</h3>
+        <p>Web development, Python, AI and business automation solutions for real needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon-divider"></div>
+
+<!-- ================= ABOUT ================= -->
+<section class="section alt" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">About Us</div>
+      <h2>Building the Next Generation of Technology Professionals</h2>
+      <p>Alviora Technologies is a technology-focused company — not a college, university or government organization — built to make practical, industry-aligned learning accessible.</p>
+    </div>
+
+    <div class="reveal about-flow">
+      <span class="flow-step">Academic Learning</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Practical Skills</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Projects</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Industry Exposure</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Career Readiness</span>
+    </div>
+
+    <div class="mvv-grid reveal">
+      <div class="mvv-card">
+        <h4>Our Mission</h4>
+        <p>To make technology education more practical, accessible and aligned with real-world industry requirements.</p>
+      </div>
+      <div class="mvv-card">
+        <h4>Our Vision</h4>
+        <p>To build an ecosystem where students, technology companies and startups can collaborate through skills, projects and opportunities.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:36px;">
+      <h4 style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:var(--cyan);margin-bottom:14px;">OUR VALUES</h4>
+      <div class="values-row">
+        <span class="value-pill">Practicality</span>
+        <span class="value-pill">Innovation</span>
+        <span class="value-pill">Integrity</span>
+        <span class="value-pill">Continuous Learning</span>
+        <span class="value-pill">Collaboration</span>
+        <span class="value-pill">Industry Relevance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAMS ================= -->
+<section class="section" id="programs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Programs</div>
+      <h2>Practical programs across the modern stack</h2>
+      <p>Every program is built around real tools, real projects and real assessment — durations and fees are confirmed at enquiry.</p>
+    </div>
+
+    <div class="card-grid grid-3">
+      <div class="card program-card reveal">
+        <span class="tag">Web Development</span>
+        <h3 style="margin-top:14px;">Full Web Development Track</h3>
+        <p>From markup fundamentals to deployed, database-backed applications.</p>
+        <div class="tech-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>Tailwind</span><span>React</span><span>PHP</span><span>MySQL</span><span>REST APIs</span><span>Git & GitHub</span>
+        </div>
+        <div class="program-meta"><span>Duration: To be announced</span><span>Fee: Contact us</span></div>
+        <!-- Replace the existing View Program link for Full Web Dev Track -->
+<button type="button" onclick="openModal('web-dev-modal')" class="btn btn-outline btn-sm" style="margin-top:10px;">View Program</button>
+      </div>
+
+      <div class="card program-card reveal">
+        <span class="tag">Python</span>
+        <h3 style="margin-top:14px;">Python Development Track</h3>
+        <p>Backend logic, automation and data processing built on Python.</p>
+        <div class="tech-tags">
+          <span>Python</span><span>Automation</span><span>APIs</span><span>Backend</span><span>Scripting</span><span>Data Processing</span>
+        </div>
+        <div class="program-meta"><span>Duration: To be announced</span><span>Fee: Contact us</span></div>
+        <!-- Replace existing View Program link for Python Development Track -->
+<button type="button" onclick="openModal('python-dev-modal')" class="btn btn-outline btn-sm" style="margin-top:10px;">View Program</button>
+      </div>
+
+      <div class="card program-card reveal">
+        <span class="tag">AI & Automation</span>
+        <h3 style="margin-top:14px;">AI & Automation Track</h3>
+        <p>Applying AI APIs and automation to real business workflows.</p>
+        <div class="tech-tags">
+          <span>AI APIs</span><span>Chatbots</span><span>Business Automation</span><span>Excel Automation</span><span>Python Automation</span><span>Workflow Automation</span>
+        </div>
+        <div class="program-meta"><span>Duration: To be announced</span><span>Fee: Contact us</span></div>
+        <!-- Replace existing View Program link for AI & Automation Track -->
+<button type="button" onclick="openModal('ai-automation-modal')" class="btn btn-outline btn-sm" style="margin-top:10px;">View Program</button>
+      </div>
+
+      <div class="card program-card reveal">
+        <span class="tag">Full Stack</span>
+        <h3 style="margin-top:14px;">Full Stack Development Track</h3>
+        <p>Frontend to backend to deployment, in one connected journey.</p>
+        <div class="tech-tags">
+          <span>Frontend</span><span>Backend</span><span>Database</span><span>APIs</span><span>Authentication</span><span>Deployment</span><span>Git/GitHub</span>
+        </div>
+        <div class="program-meta"><span>Duration: To be announced</span><span>Fee: Contact us</span></div>
+        <!-- Replace existing View Program link for Full Stack Development Track -->
+<button type="button" onclick="openModal('fullstack-dev-modal')" class="btn btn-outline btn-sm" style="margin-top:10px;">View Program</button>
+      </div>
+
+      <div class="card program-card reveal">
+        <span class="tag">Coming Soon</span>
+        <h3 style="margin-top:14px;">Future Programs</h3>
+        <p>Expanding into emerging, high-demand technology domains.</p>
+        <div class="tech-tags">
+          <span>Cloud & DevOps</span><span>Cybersecurity</span><span>Data Analytics</span><span>Machine Learning</span><span>UI/UX</span><span>Mobile Development</span>
+        </div>
+        <div class="program-meta"><span>Duration: To be announced</span><span>Fee: Contact us</span></div>
+        <!-- Replace existing Register Interest link for Future Programs -->
+<button type="button" onclick="openModal('future-programs-modal')" class="btn btn-outline btn-sm" style="margin-top:10px;">Register Interest</button>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:70px;">
+      <div class="section-head" style="margin-bottom:36px;">
+        <div class="eyebrow">Program Journey</div>
+        <h2 style="font-size:26px;">The same path, every program</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-label">Learn</div></div>
+        <div class="timeline-line"></div>
+        <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-label">Practice</div></div>
+        <div class="timeline-line"></div>
+        <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-label">Build</div></div>
+        <div class="timeline-line"></div>
+        <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-label">Assess</div></div>
+        <div class="timeline-line"></div>
+        <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-label">Complete</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon-divider"></div>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section alt" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Projects</div>
+      <h2>Build. Don't Just Learn.</h2>
+      <p>Students learn more effectively when they apply their knowledge to practical projects. The projects below are sample projects until real student work is published.</p>
+    </div>
+
+    <div class="card-grid grid-3">
+      <div class="card project-card reveal">
+        <div class="status"><span class="tag">Sample Project</span><span style="font-size:12px;color:var(--gray-dim);">Active</span></div>
+        <h3>Student Management System</h3>
+        <dl>
+          <dt>Problem</dt><dd>Manual tracking of student records and attendance.</dd>
+          <dt>Solution</dt><dd>Centralized web app for records, attendance and grades.</dd>
+          <dt>Technologies</dt><dd>React, Node.js, MySQL</dd>
+        </dl>
+        <div class="links"><a href="https://github.com/salehamajid993-code">GitHub →</a><a href="https://salehamajid993-code.github.io/Alviora-Student/">Live Demo →</a></div>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="status"><span class="tag">Sample Project</span><span style="font-size:12px;color:var(--gray-dim);">Active</span></div>
+        <h3>E-Commerce Platform</h3>
+        <dl>
+          <dt>Problem</dt><dd>Small sellers lack an affordable online storefront.</dd>
+          <dt>Solution</dt><dd>Lightweight storefront with cart, checkout and admin panel.</dd>
+          <dt>Technologies</dt><dd>React, PHP, MySQL</dd>
+        </dl>
+        <div class="links"><a href="https://github.com/salehamajid993-code">GitHub →</a><a href="#">Live Demo →</a></div>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="status"><span class="tag">Sample Project</span><span style="font-size:12px;color:var(--gray-dim);">Active</span></div>
+        <h3>AI Resume Analyzer</h3>
+        <dl>
+          <dt>Problem</dt><dd>Candidates struggle to align resumes with job descriptions.</dd>
+          <dt>Solution</dt><dd>AI tool that scores and suggests resume improvements.</dd>
+          <dt>Technologies</dt><dd>Python, AI APIs, Flask</dd>
+        </dl>
+        <div class="links"><a href="https://github.com/salehamajid993-code">GitHub →</a><a href="#">Live Demo →</a></div>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="status"><span class="tag">Sample Project</span><span style="font-size:12px;color:var(--gray-dim);">Active</span></div>
+        <h3>Automated Excel Reporting Tool</h3>
+        <dl>
+          <dt>Problem</dt><dd>Weekly reports built manually across scattered sheets.</dd>
+          <dt>Solution</dt><dd>Python automation that compiles and formats reports.</dd>
+          <dt>Technologies</dt><dd>Python, Pandas, OpenPyXL</dd>
+        </dl>
+        <div class="links"><a href="#">GitHub →</a><a href="#">Live Demo →</a></div>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="status"><span class="tag">Sample Project</span><span style="font-size:12px;color:var(--gray-dim);">Active</span></div>
+        <h3>AI Customer Support Chatbot</h3>
+        <dl>
+          <dt>Problem</dt><dd>Support teams repeat answers to common questions.</dd>
+          <dt>Solution</dt><dd>AI chatbot handling FAQs with human handoff.</dd>
+          <dt>Technologies</dt><dd>Python, AI APIs, React</dd>
+        </dl>
+        <div class="links"><a href="#">GitHub →</a><a href="#">Live Demo →</a></div>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="status"><span class="tag">Sample Project</span><span style="font-size:12px;color:var(--gray-dim);">Active</span></div>
+        <h3>Business Dashboard</h3>
+        <dl>
+          <dt>Problem</dt><dd>Business metrics locked in disconnected spreadsheets.</dd>
+          <dt>Solution</dt><dd>Interactive dashboard visualizing key business metrics.</dd>
+          <dt>Technologies</dt><dd>React, Python, REST APIs</dd>
+        </dl>
+        <div class="links"><a href="#">GitHub →</a><a href="#">Live Demo →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRY EXPOSURE ================= -->
+<section class="section" id="industry">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Industry Exposure</div>
+      <h2>From Learning to Industry</h2>
+      <p>A clear, structured path connecting practical learning to real industry opportunities.</p>
+    </div>
+
+    <div class="vjourney reveal">
+      <div class="vstep"><h4>Step 1 — Apply</h4><p>Submit an application for the relevant program.</p></div>
+      <div class="vstep"><h4>Step 2 — Learn</h4><p>Go through structured, practical training.</p></div>
+      <div class="vstep"><h4>Step 3 — Build Projects</h4><p>Apply learning to real, hands-on projects.</p></div>
+      <div class="vstep"><h4>Step 4 — Technical Assessment</h4><p>Skills are evaluated against industry standards.</p></div>
+      <div class="vstep"><h4>Step 5 — Get Evaluated</h4><p>Performance and readiness are reviewed.</p></div>
+      <div class="vstep"><h4>Step 6 — Industry Opportunity</h4><p>Suitable learners are considered for opportunities.</p></div>
+      <div class="vstep"><h4>Step 7 — Project / Internship Experience</h4><p>Gain real experience with a partner organization.</p></div>
+    </div>
+
+    <div class="disclaimer-box reveal">
+      Industry opportunities are subject to eligibility, performance, availability and partner-company selection. Alviora does not guarantee internships, placements or employment.
+    </div>
+  </div>
+</section>
+
+<div class="ribbon-divider"></div>
+
+<!-- ================= STUDENT JOURNEY ================= -->
+<section class="section alt" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Student Journey</div>
+      <h2>One path, from discovery to portfolio</h2>
+    </div>
+    <div class="card-grid grid-4" style="gap:16px;">
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">01 · Discover</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">02 · Join</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">03 · Learn</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">04 · Practice</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">05 · Build</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">06 · Get Assessed</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">07 · Industry Exposure</h3></div>
+      <div class="card reveal" style="padding:22px;"><h3 style="font-size:14px;">08 · Complete</h3></div>
+    </div>
+    <div class="card reveal" style="margin-top:16px;text-align:center;padding:26px;border-color:rgba(6,214,232,0.35);">
+      <h3 style="font-size:15px;color:var(--cyan);">09 · Build Your Portfolio</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATE VERIFICATION ================= -->
+<section class="section" id="verify">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">Certificate Verification</div>
+      <h2>Verify a Certificate</h2>
+    </div>
+    <div class="verify-box reveal">
+      <span class="coming-soon">Interface Preview</span>
+      <p style="color:var(--gray);font-size:14px;margin-top:6px;">Enter a certificate ID to view its status once verification is live.</p>
+      <div class="verify-input-row">
+        <input type="text" placeholder="Certificate ID (e.g. ALV-2026-0001)">
+        <button class="btn btn-primary btn-sm" type="button">Verify</button>
+      </div>
+      <p style="font-size:12px;color:var(--gray-dim);margin-top:16px;">Results will display Student Name, Program, Certificate ID, Issue Date, Status and Issued By.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section class="section alt" id="partners">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Partner With Alviora</div>
+      <h2>Connect With Trained and Assessed Technology Talent.</h2>
+    </div>
+
+    <div class="partner-layout">
+      <div class="reveal">
+        <p style="color:var(--gray);font-size:15px;">Alviora works with startups and technology companies to connect trained, project-assessed learners with real project and internship needs.</p>
+        <div class="benefit-list">
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Access to trained students</div>
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Skill-based screening</div>
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Project assistance</div>
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Early talent discovery</div>
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Internship / project opportunities</div>
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Future recruitment pipeline</div>
+          <div class="benefit-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Technology collaboration</div>
+        </div>
+      </div>
+
+      <form class="card reveal" action="https://formspree.io/f/xwlejjkz" method="POST">
+  <!-- Hidden Subject Field for Formspree Email Header -->
+  <input type="hidden" name="_subject" value="🤝 New Partnership Request (Alviora Website)">
+  <input type="hidden" name="Route_To" value="alvioratech@gmail.com">
+
+  <div class="form-row">
+    <div>
+      <label>Company / Organization Name</label>
+      <input type="text" name="Company Name" required placeholder="Company Name">
+    </div>
+    <div>
+      <label>Contact Person</label>
+      <input type="text" name="Contact Person" required placeholder="Full Name">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Designation</label>
+      <input type="text" name="Designation" placeholder="e.g. HR Manager / CTO">
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="email" name="Email" required placeholder="company@domain.com">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Phone</label>
+      <input type="tel" name="Phone" placeholder="+91 00000 00000">
+    </div>
+    <div>
+      <label>Technology / Domain</label>
+      <input type="text" name="Technology Domain" placeholder="e.g. Web Dev, Python, AI">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Type of Requirement</label>
+      <select name="Requirement Type">
+        <option value="Project Collaboration">Project Collaboration</option>
+        <option value="Internship Hiring">Internship Hiring</option>
+        <option value="Full-Time Recruitment">Full-Time Recruitment</option>
+        <option value="Campus Drive">Campus Drive</option>
+      </select>
+    </div>
+    <div>
+      <label>Number of Students Required</label>
+      <input type="number" name="Students Count" placeholder="e.g. 5">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Skills Required</label>
+      <input type="text" name="Skills Required" placeholder="e.g. React, PHP, MySQL">
+    </div>
+    <div>
+      <label>Duration / Timeline</label>
+      <input type="text" name="Duration" placeholder="e.g. 3 Months">
+    </div>
+  </div>
+
+  <div>
+    <label>Additional Message</label>
+    <textarea name="Message" placeholder="Describe your requirement or partnership proposal..."></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Submit Partnership Request</button>
+</form>
+    </div>
+
+    <div class="reveal" style="margin-top:70px;">
+      <div class="section-head" style="margin-bottom:26px;">
+        <div class="eyebrow">Our Industry Network</div>
+        <h2 style="font-size:24px;">Our Industry Network</h2>
+      </div>
+      <div class="logo-strip">Partner logos will appear here as partnerships are established.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPPORTUNITIES ================= -->
+<section class="section" id="opportunities">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Internship / Project Opportunities</div>
+      <h2>Available Opportunities</h2>
+    </div>
+    <div class="card-grid grid-4">
+      <div class="card reveal"><h3 style="font-size:15px;">Eligibility</h3><p>Based on program completion and assessment performance.</p></div>
+      <div class="card reveal"><h3 style="font-size:15px;">Selection Process</h3><p>Application, assessment and partner review.</p></div>
+      <div class="card reveal"><h3 style="font-size:15px;">Partner Selection</h3><p>Partner companies choose based on their requirements.</p></div>
+      <div class="card reveal"><h3 style="font-size:15px;">Evaluation</h3><p>Ongoing feedback through the project or internship.</p></div>
+    </div>
+    <div class="disclaimer-box reveal" style="margin-top:30px;">
+      Participation in an internship or industry project is not automatically guaranteed. Opportunities depend on eligibility, performance, availability and partner-company requirements.
+    </div>
+    <div class="reveal" style="margin-top:26px;">
+      <button class="btn btn-primary" onclick="openOpportunityModal()">Explore Opportunities</button>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon-divider"></div>
+
+<!-- ================= SMART TALENT MATCHING ================= -->
+<section class="section alt" id="matching">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="coming-soon">Coming Soon</span>
+      <h2>Smart Talent Matching</h2>
+      <p>An AI concept that will match suitable students with suitable company requirements. Not yet operational.</p>
+    </div>
+    <div class="match-flow reveal">
+      <div class="match-box"><h5>Student Profile</h5>Skills · Projects · Assessment</div>
+      <div class="match-arrow">→</div>
+      <div class="match-box" style="border-color:rgba(6,214,232,0.4);"><h5>AI Matching Engine</h5>Analyzes fit &amp; readiness</div>
+      <div class="match-arrow">→</div>
+      <div class="match-box"><h5>Suitable Opportunities</h5>Ranked by relevance</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARDS (CONCEPT) ================= -->
+<section class="section" id="dashboards">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="coming-soon">Concept Preview</span>
+      <h2>Student & Company Dashboards</h2>
+      <p>Modular portals being designed for future release. Login and registration UI will connect to backend authentication when available.</p>
+    </div>
+
+    <div class="card-grid grid-2">
+      <div class="reveal">
+        <h3 style="font-size:15px;margin-bottom:14px;">Student Dashboard</h3>
+        <div class="dash-mock">
+          <div class="sidebar">
+            <a class="active">Profile</a><a>My Programs</a><a>Assignments</a><a>Assessments</a><a>Projects</a><a>Certificates</a><a>Opportunities</a>
+          </div>
+          <div class="content">
+            <div class="dash-tile"><h6>Progress</h6><div class="val">—</div></div>
+            <div class="dash-tile"><h6>Assignments Due</h6><div class="val">—</div></div>
+            <div class="dash-tile"><h6>Certificates</h6><div class="val">—</div></div>
+            <div class="dash-tile"><h6>Applications</h6><div class="val">—</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 style="font-size:15px;margin-bottom:14px;">Company Dashboard</h3>
+        <div class="dash-mock">
+          <div class="sidebar">
+            <a class="active">Requirements</a><a>Shortlist</a><a>Student Profiles</a><a>Interviews</a><a>Projects</a><a>Evaluations</a>
+          </div>
+          <div class="content">
+            <div class="dash-tile"><h6>Open Requirements</h6><div class="val">—</div></div>
+            <div class="dash-tile"><h6>Shortlisted</h6><div class="val">—</div></div>
+            <div class="dash-tile"><h6>Interviews</h6><div class="val">—</div></div>
+            <div class="dash-tile"><h6>Active Projects</h6><div class="val">—</div></div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-outline btn-sm" style="margin-top:16px;">Post a Requirement</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY SOLUTIONS ================= -->
+<section class="section alt" id="solutions">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Technology Solutions</div>
+      <h2>We don't just teach technology. We help people build with it.</h2>
+    </div>
+    <div class="card-grid grid-4">
+      <div class="card reveal"><h3 style="font-size:14.5px;">Web Development</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">AI Chatbots</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">Python Automation</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">Excel Automation</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">Business Process Automation</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">API Integration</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">Custom Software</h3></div>
+      <div class="card reveal"><h3 style="font-size:14.5px;">AI Solutions</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTS ================= -->
+<section class="section" id="events">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Events & Workshops</div>
+      <h2>Learn together, live</h2>
+    </div>
+    <div class="empty-state reveal">
+      Upcoming events will be announced soon.
+    </div>
+  </div>
+</section>
+
+<div class="ribbon-divider"></div>
+
+<!-- ================= BLOG ================= -->
+<section class="section alt" id="blog">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Blog & Resources</div>
+      <h2>Notes from the field</h2>
+    </div>
+    <div class="card-grid grid-3">
+      <div class="card blog-card reveal">
+        <div class="blog-thumb"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Web Development</span><span>·</span><span>Alviora Team</span></div>
+          <h3 style="font-size:16px;">Choosing Your First Stack: A Practical Guide</h3>
+          <p style="margin-top:8px;">A grounded look at picking tools that match the project, not the trend.</p>
+          <a href="javascript:void(0)" class="btn btn-outline btn-sm" style="margin-top:14px;" onclick="openGuide()">Read More</a>
+        </div>
+      </div>
+      <div class="card blog-card reveal">
+        <div class="blog-thumb"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>AI</span><span>·</span><span>Alviora Team</span></div>
+          <h3 style="font-size:16px;">Where AI Actually Helps in Small Projects</h3>
+          <p style="margin-top:8px;">Practical, non-hype use cases for AI in student and startup builds.</p>
+          <!-- Button Code for Card 2 -->
+<a href="javascript:void(0)" class="btn btn-outline btn-sm" style="margin-top:14px;" onclick="openAiGuide()">Read More</a>
+        </div>
+      </div>
+      <div class="card blog-card reveal">
+        <div class="blog-thumb"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Interview Prep</span><span>·</span><span>Alviora Team</span></div>
+          <h3 style="font-size:16px;">Talking About Your Projects in Interviews</h3>
+          <p style="margin-top:8px;">How to explain what you built, and why it mattered.</p>
+          <!-- Button Code for Card 3 -->
+<a href="javascript:void(0)" class="btn btn-outline btn-sm" style="margin-top:14px;" onclick="openInterviewGuide()">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Testimonials</div>
+      <h2>What learners say</h2>
+      <p>Placeholder testimonials shown until real student stories are published.</p>
+    </div>
+    <div class="card-grid grid-3">
+      <div class="card testi-card reveal">
+        <span class="tag">Placeholder</span>
+        <p class="testi-quote" style="margin-top:14px;">"Testimonial placeholder — real student feedback will appear here."</p>
+        <div class="testi-person"><div class="testi-avatar">SA</div><div><div class="testi-name">Student Name</div><div class="testi-role">Program · Batch</div></div></div>
+      </div>
+      <div class="card testi-card reveal">
+        <span class="tag">Placeholder</span>
+        <p class="testi-quote" style="margin-top:14px;">"Testimonial placeholder — real student feedback will appear here."</p>
+        <div class="testi-person"><div class="testi-avatar">SB</div><div><div class="testi-name">Student Name</div><div class="testi-role">Program · Batch</div></div></div>
+      </div>
+      <div class="card testi-card reveal">
+        <span class="tag">Placeholder</span>
+        <p class="testi-quote" style="margin-top:14px;">"Testimonial placeholder — real student feedback will appear here."</p>
+        <div class="testi-person"><div class="testi-avatar">SC</div><div><div class="testi-name">Student Name</div><div class="testi-role">Program · Batch</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="reveal" id="faqList" style="max-width:820px;">
+      <div class="faq-item">
+        <div class="faq-q">Who can join Alviora programs?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Students, graduates and early-career professionals interested in practical technology skills.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What technologies do you teach?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Web development, Python, AI and automation, with more domains planned for the future.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are programs online or offline?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Delivery mode is confirmed at enquiry and may vary by program.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long are programs?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Durations are program-specific and will be announced. Contact us for the latest information.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What projects will students build?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Practical, real-world style projects relevant to the chosen program track.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is internship guaranteed?<span class="plus">+</span></div>
+        <div class="faq-a"><p>No. Internship and project opportunities depend on eligibility, performance, availability and partner-company selection.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How are students selected for industry opportunities?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Through technical assessment and evaluation against partner-company requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you provide certificates?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes, on meeting the program's completion requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you provide placement?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Alviora facilitates industry exposure but does not guarantee placement.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can companies partner with Alviora?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes — visit the Partners section to submit a partnership request.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can colleges collaborate with Alviora?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes, college collaborations are welcome. Reach out via the Contact page.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How can I contact Alviora?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Use the Contact section below or email us directly.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Contact</div>
+      <h2>Let's talk</h2>
+    </div>
+
+    <div class="contact-layout">
+      <div class="reveal">
+        <div class="contact-cards">
+          <div class="contact-mini"><span class="role">General Enquiries</span><span class="email">alvioratech@gmail.com</span></div>
+          <div class="contact-mini"><span class="role">Student Support</span><span class="email">salehamajid993@gmail.com</span></div>
+          <div class="contact-mini"><span class="role">Partnership</span><span class="email">alvioratech@gmail.com</span></div>
+          <div class="contact-mini"><span class="role">College Collaboration</span><span class="email">alvioratech@gmail.com</span></div>
+          <div class="contact-mini"><span class="role">Corporate / Tech Services</span><span class="email">salehamajid993@gmail.com</span></div>
+        </div>
+        <p style="color:var(--gray);font-size:14px;">Phone: +91 9564329060 <span style="color:var(--gray-dim);">(Saleha Majid)</span></p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/saleha-majid-204758278?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3.5a1.5 1.5 0 0 1 3 0V16M12 11v5"/></svg></a>
+          <a href="https://www.instagram.com/alvioratech27?igsh=MXFrZzhydnE0dTJtdg==" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9.5v5l5-2.5-5-2.5Z"/></svg></a>
+          <a href="https://github.com/salehamajid993-code" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2-.2 4.5-1 4.5-4.5 0-1-.4-1.8-1-2.5.1-.2.4-1.2-.1-2.5 0 0-.9-.3-3 1a10 10 0 0 0-5.6 0c-2.1-1.3-3-1-3-1-.5 1.3-.2 2.3-.1 2.5-.6.7-1 1.5-1 2.5 0 3.5 2.5 4.3 4.5 4.5-.3.3-.5.7-.5 1.5v3.5"/></svg></a>
+        </div>
+      </div>
+
+      <form class="card reveal" id="contactForm">
+  <div class="form-row">
+    <div>
+      <label>Name</label>
+      <input type="text" name="name" id="formName" required placeholder="Your Name">
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="email" name="email" id="formEmail" required placeholder="yourname@domain.com">
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label>Phone</label>
+      <input type="tel" name="phone" id="formPhone" placeholder="+91 00000 00000">
+    </div>
+    <div>
+      <label>Purpose</label>
+      <select name="purpose" id="formPurpose">
+        <option value="General Enquiry">General Enquiry</option>
+        <option value="Student Support">Student Support</option>
+        <option value="Partnership">Partnership</option>
+        <option value="College Collaboration">College Collaboration</option>
+        <option value="Corporate Services">Corporate Services</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <label>Message</label>
+    <textarea name="message" id="formMessage" required placeholder="Write your message here..."></textarea>
+  </div>
+  <button type="submit" id="submitBtn" class="btn btn-primary">Send Message</button>
+  <div id="formStatus" style="margin-top:12px; font-size:13px; font-family:'JetBrains Mono',monospace;"></div>
+</form>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="assets/alviora-logo.png" alt="Alviora Technologies logo" style="height:40px;width:40px;object-fit:contain;">
+          <div class="brand-text">
+            <span class="name">ALVIORA</span>
+            <span class="sub">TECHNOLOGIES</span>
+          </div>
+        </div>
+        <p>Learn. Build. Innovate. Lead.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#projects">Projects</a><a href="#industry">Industry Exposure</a><a href="#partners">Partners</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>For Students</h5>
+        <a href="#programs">Programs</a><a href="#projects">Projects</a><a href="#opportunities">Opportunities</a><a href="#verify">Certificate Verification</a><a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>For Companies</h5>
+        <a href="#partners">Partner With Us</a><a href="#partners">Submit Requirement</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Alviora Technologies. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Refund / Cancellation Policy</a><a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(other => {
+      other.classList.remove('open');
+      other.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+// Modal Logic
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if(modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if(modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// Close modal on outside overlay click
+window.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+});
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.getElementById('submitBtn');
+  const statusDiv = document.getElementById('formStatus');
+  
+  const purpose = document.getElementById('formPurpose').value;
+  
+  // Dynamic Email Routing logic in Subject header
+  let targetEmail = "alvioratech@gmail.com";
+  if (purpose === "Student Support" || purpose === "Corporate Services") {
+    targetEmail = "salehamajid993@gmail.com";
+  }
+
+  submitBtn.innerText = "Sending...";
+  submitBtn.disabled = true;
+
+  const formData = new FormData();
+  formData.append('Name', document.getElementById('formName').value);
+  formData.append('Email', document.getElementById('formEmail').value);
+  formData.append('Phone', document.getElementById('formPhone').value);
+  formData.append('Purpose', purpose);
+  formData.append('Route_To_Recipient', targetEmail);
+  formData.append('Message', document.getElementById('formMessage').value);
+  formData.append('_subject', `New Website Enquiry [${purpose}] -> Target: ${targetEmail}`);
+
+  try {
+    const response = await fetch('https://formspree.io/f/xwlejjkz', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      statusDiv.style.color = '#06D6E8';
+      statusDiv.innerText = `✓ Message sent! Routed for: ${targetEmail}`;
+      document.getElementById('contactForm').reset();
+    } else {
+      statusDiv.style.color = '#ff4d4f';
+      statusDiv.innerText = "✕ Submission failed. Please try again.";
+    }
+  } catch (error) {
+    statusDiv.style.color = '#ff4d4f';
+    statusDiv.innerText = "✕ Network error. Check your connection.";
+  } finally {
+    submitBtn.innerText = "Send Message";
+    submitBtn.disabled = false;
+  }
+});
+document.getElementById('partnershipForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.getElementById('partnerSubmitBtn');
+  const statusDiv = document.getElementById('partnerFormStatus');
+  
+  submitBtn.innerText = "Submitting Request...";
+  submitBtn.disabled = true;
+
+  const formData = new FormData();
+  formData.append('Form_Type', 'Partnership Request');
+  formData.append('Company_Name', document.getElementById('partnerCompany').value);
+  formData.append('Contact_Person', document.getElementById('partnerContactPerson').value);
+  formData.append('Designation', document.getElementById('partnerDesignation').value);
+  formData.append('Email', document.getElementById('partnerEmail').value);
+  formData.append('Phone', document.getElementById('partnerPhone').value);
+  formData.append('Technology_Domain', document.getElementById('partnerDomain').value);
+  formData.append('Requirement_Type', document.getElementById('partnerReqType').value);
+  formData.append('Students_Count', document.getElementById('partnerStudentCount').value);
+  formData.append('Skills_Required', document.getElementById('partnerSkills').value);
+  formData.append('Duration', document.getElementById('partnerDuration').value);
+  formData.append('Message', document.getElementById('partnerMessage').value);
+  
+  // Direct Subject for clear identification in alvioratech@gmail.com inbox
+  formData.append('_subject', `🤝 New Partnership Request from ${document.getElementById('partnerCompany').value}`);
+
+  try {
+    const response = await fetch('https://formspree.io/f/xwlejjkz', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      statusDiv.style.color = '#06D6E8';
+      statusDiv.innerText = "✓ Partnership request sent successfully! We will contact you soon.";
+      document.getElementById('partnershipForm').reset();
+    } else {
+      statusDiv.style.color = '#ff4d4f';
+      statusDiv.innerText = "✕ Submission failed. Please try again.";
+    }
+  } catch (error) {
+    statusDiv.style.color = '#ff4d4f';
+    statusDiv.innerText = "✕ Network error. Please check your connection.";
+  } finally {
+    submitBtn.innerText = "Submit Partnership Request";
+    submitBtn.disabled = false;
+  }
+});
+
+</script>
+
+<!-- ================= PROGRAM MODAL (FULL WEB DEV) ================= -->
+<div class="modal-overlay" id="web-dev-modal">
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeModal('web-dev-modal')">&times;</button>
+    
+    <span class="tag">Full Curriculum</span>
+    <h2 style="font-size:26px; margin-top:10px;">Full Web Development Track</h2>
+    <p style="color:var(--gray); font-size:14px; margin-top:6px;">
+      Zero to deployment: Master modern layout systems, dynamic database architecture, and session management.
+    </p>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <h5>MODULE 1: Core Frontend</h5>
+        <ul>
+          <li>Semantic HTML5 & Accessibility</li>
+          <li>CSS3 Flexbox, Grid & Variables</li>
+          <li>Bootstrap 5 Responsive Layouts</li>
+          <li>Tailwind CSS Utility Design</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 2: JavaScript & Logic</h5>
+        <ul>
+          <li>ES6+ Syntax & DOM Manipulation</li>
+          <li>Async JS, Promises & Fetch API</li>
+          <li>State Management & Components</li>
+          <li>React.js Fundamentals & Hooks</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 3: Backend & Database</h5>
+        <ul>
+          <li>Core PHP Architecture & OOP</li>
+          <li>MySQL Relational DB & Queries</li>
+          <li>Session Management & Auth</li>
+          <li>RESTful API Endpoints Design</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 4: Deployment & Tools</h5>
+        <ul>
+          <li>Git Version Control & GitHub</li>
+          <li>Live Server Hosting & FTP</li>
+          <li>CRUD Application Production</li>
+          <li>Security Essentials & XSS Shield</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: rgba(6,214,232,0.06); border: 1px solid rgba(6,214,232,0.2); padding: 16px; border-radius: 10px; margin-top: 10px;">
+      <h5 style="color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:12px; text-transform:uppercase;">Projects You Will Build</h5>
+      <p style="color:var(--gray); font-size:13px; margin-top:4px;">
+        High-aesthetic e-commerce dynamic showcase, session-based personalized portals, and booking management engines.
+      </p>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:12px; justify-content:flex-end;">
+      <a href="#contact" onclick="closeModal('web-dev-modal')" class="btn btn-primary btn-sm">Enroll In Track</a>
+    </div>
+  </div>
+</div>
+<!-- ================= PROGRAM MODAL (PYTHON DEV) ================= -->
+<div class="modal-overlay" id="python-dev-modal">
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeModal('python-dev-modal')">&times;</button>
+    
+    <span class="tag">Full Curriculum</span>
+    <h2 style="font-size:26px; margin-top:10px;">Python Development Track</h2>
+    <p style="color:var(--gray); font-size:14px; margin-top:6px;">
+      Master core programming logic, automated scripting, custom API creation, and scalable backend systems.
+    </p>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <h5>MODULE 1: Core Fundamentals</h5>
+        <ul>
+          <li>Python Syntax & Data Structures</li>
+          <li>Control Flow & Error Handling</li>
+          <li>Object-Oriented Programming (OOP)</li>
+          <li>File Handling & Modules</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 2: Data & Scripting</h5>
+        <ul>
+          <li>Automated Scripting & Parsing</li>
+          <li>Data Wrangling with Pandas</li>
+          <li>JSON, CSV & File Automation</li>
+          <li>Web Scraping (BeautifulSoup/Requests)</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 3: Backend & Web APIs</h5>
+        <ul>
+          <li>FastAPI / Flask Framework Setup</li>
+          <li>RESTful API Design Patterns</li>
+          <li>Database Integration (SQLite/MySQL)</li>
+          <li>Authentication & JWT Tokens</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 4: Testing & Deployment</h5>
+        <ul>
+          <li>Git Version Control Workflow</li>
+          <li>Environment Setup & Virtualenvs</li>
+          <li>Unit Testing with PyTest</li>
+          <li>Deploying Python Services to Cloud</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: rgba(6,214,232,0.06); border: 1px solid rgba(6,214,232,0.2); padding: 16px; border-radius: 10px; margin-top: 10px;">
+      <h5 style="color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:12px; text-transform:uppercase;">Projects You Will Build</h5>
+      <p style="color:var(--gray); font-size:13px; margin-top:4px;">
+        Automated data extraction pipelines, custom REST APIs for dynamic web apps, and backend logic engines.
+      </p>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:12px; justify-content:flex-end;">
+      <a href="#contact" onclick="closeModal('python-dev-modal')" class="btn btn-primary btn-sm">Enroll In Track</a>
+    </div>
+  </div>
+</div>
+<!-- ================= PROGRAM MODAL (AI & AUTOMATION) ================= -->
+<div class="modal-overlay" id="ai-automation-modal">
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeModal('ai-automation-modal')">&times;</button>
+    
+    <span class="tag">Full Curriculum</span>
+    <h2 style="font-size:26px; margin-top:10px;">AI & Automation Track</h2>
+    <p style="color:var(--gray); font-size:14px; margin-top:6px;">
+      Build intelligent AI agents, automate business workflows, and integrate LLM APIs into production applications.
+    </p>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <h5>MODULE 1: AI Foundations & APIs</h5>
+        <ul>
+          <li>OpenAI & Gemini API Integration</li>
+          <li>Prompt Engineering Tactics</li>
+          <li>Token Optimization & Cost Control</li>
+          <li>Structured JSON Outputs from LLMs</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 2: Workflow Automation</h5>
+        <ul>
+          <li>No-Code/Low-Code (Make / n8n)</li>
+          <li>Python Webhooks & Automation</li>
+          <li>Excel & Google Sheets Auto-Sync</li>
+          <li>Email & Notification Automation</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 3: AI Agents & Chatbots</h5>
+        <ul>
+          <li>Building Custom Knowledge Chatbots</li>
+          <li>RAG (Retrieval-Augmented Generation)</li>
+          <li>Vector Databases (Pinecone / Chroma)</li>
+          <li>LangChain & AI Agent Tooling</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 4: Deployment & Client Ops</h5>
+        <ul>
+          <li>API Endpoints Deployment</li>
+          <li>Scheduled Cron Jobs & Background Tasks</li>
+          <li>Client Business Workflow Audits</li>
+          <li>Monetizing AI Micro-SaaS Solutions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: rgba(6,214,232,0.06); border: 1px solid rgba(6,214,232,0.2); padding: 16px; border-radius: 10px; margin-top: 10px;">
+      <h5 style="color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:12px; text-transform:uppercase;">Projects You Will Build</h5>
+      <p style="color:var(--gray); font-size:13px; margin-top:4px;">
+        AI-powered customer support bots, automated content generation pipelines, and automated lead management systems.
+      </p>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:12px; justify-content:flex-end;">
+      <a href="#contact" onclick="closeModal('ai-automation-modal')" class="btn btn-primary btn-sm">Enroll In Track</a>
+    </div>
+  </div>
+</div>
+<!-- ================= PROGRAM MODAL (FULL STACK DEV) ================= -->
+<div class="modal-overlay" id="fullstack-dev-modal">
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeModal('fullstack-dev-modal')">&times;</button>
+    
+    <span class="tag">Full Curriculum</span>
+    <h2 style="font-size:26px; margin-top:10px;">Full Stack Development Track</h2>
+    <p style="color:var(--gray); font-size:14px; margin-top:6px;">
+      Master end-to-end web engineering: from high-aesthetic visual frontends to scalable backend architectures, relational databases, and cloud hosting.
+    </p>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <h5>MODULE 1: Advanced Frontend</h5>
+        <ul>
+          <li>Modern HTML5, CSS Grid & Utility Design</li>
+          <li>JavaScript ES6+, DOM & Dynamic Rendering</li>
+          <li>Component Architecture & UI State Handling</li>
+          <li>Responsive Editorial & Glassmorphism UI</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 2: Core Backend Logic</h5>
+        <ul>
+          <li>Server Architecture & OOP Fundamentals</li>
+          <li>Session Management & Dynamic Personalization</li>
+          <li>Authentication, Hashing & Secure Login Pipeline</li>
+          <li>RESTful API Design & Integration</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 3: Database & Mapping</h5>
+        <ul>
+          <li>Relational Database Design (MySQL/PostgreSQL)</li>
+          <li>Dynamic Database Schema & Query Optimization</li>
+          <li>CRUD Operations & Relational Data Mapping</li>
+          <li>Data Security & Injection Shielding</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>MODULE 4: Deployment & DevOps</h5>
+        <ul>
+          <li>Git Version Control, Branching & GitHub</li>
+          <li>FTP Management & Live Server Hosting</li>
+          <li>Environment Configuration & Production Build</li>
+          <li>Performance Optimization & Asset Caching</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: rgba(6,214,232,0.06); border: 1px solid rgba(6,214,232,0.2); padding: 16px; border-radius: 10px; margin-top: 10px;">
+      <h5 style="color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:12px; text-transform:uppercase;">Projects You Will Build</h5>
+      <p style="color:var(--gray); font-size:13px; margin-top:4px;">
+        Production-ready dynamic platforms, session-driven web applications, custom management engines, and full-stack digital asset showcases.
+      </p>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:12px; justify-content:flex-end;">
+      <a href="#contact" onclick="closeModal('fullstack-dev-modal')" class="btn btn-primary btn-sm">Enroll In Track</a>
+    </div>
+  </div>
+</div>
+<!-- ================= PROGRAM MODAL (FUTURE PROGRAMS) ================= -->
+<div class="modal-overlay" id="future-programs-modal">
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeModal('future-programs-modal')">&times;</button>
+    
+    <span class="tag">Upcoming Tracks</span>
+    <h2 style="font-size:26px; margin-top:10px;">Future Programs & Roadmap</h2>
+    <p style="color:var(--gray); font-size:14px; margin-top:6px;">
+      We are actively expanding into emerging technology domains. Be the first to get notified and receive early-bird access when enrollment opens.
+    </p>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <h5>TRACK 01: Cloud & DevOps</h5>
+        <ul>
+          <li>AWS Infrastructure & Docker Containers</li>
+          <li>CI/CD Automation Pipelines</li>
+          <li>Kubernetes Orchestration</li>
+          <li>Server Monitoring & Cloud Security</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>TRACK 02: Cybersecurity & Defense</h5>
+        <ul>
+          <li>Network Security & Penetration Testing</li>
+          <li>Web Application Vulnerabilities (OWASP)</li>
+          <li>Ethical Hacking Essentials</li>
+          <li>Security Auditing & Incident Response</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>TRACK 03: Data Analytics & ML</h5>
+        <ul>
+          <li>Data Visualization & BI Dashboards</li>
+          <li>Statistical Analysis with Python</li>
+          <li>Machine Learning Algorithms</li>
+          <li>Predictive Analytics Engines</li>
+        </ul>
+      </div>
+
+      <div class="curriculum-card">
+        <h5>TRACK 04: Product UI/UX Design</h5>
+        <ul>
+          <li>User Research & Wireframing</li>
+          <li>High-Fidelity Figma Prototyping</li>
+          <li>Design Systems & Micro-Interactions</li>
+          <li>Usability Testing & Accessibility</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: rgba(6,214,232,0.06); border: 1px solid rgba(6,214,232,0.2); padding: 16px; border-radius: 10px; margin-top: 10px;">
+      <h5 style="color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:12px; text-transform:uppercase;">Early Access Advantage</h5>
+      <p style="color:var(--gray); font-size:13px; margin-top:4px;">
+        Registering your interest reserves your slot in limited cohort groups and grants access to preliminary learning materials before cohort launch.
+      </p>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:12px; justify-content:flex-end;">
+      <a href="#contact" onclick="closeModal('future-programs-modal')" class="btn btn-primary btn-sm">Express Interest</a>
+    </div>
+  </div>
+</div>
+<!-- Guide Modal -->
+<div id="guideModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeGuide()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">Web Development</span>
+      <h1>Choosing Your First Stack: A Practical Guide</h1>
+      <p class="subtitle">A grounded look at picking tools that match the project, not the trend.</p>
+    </div>
+
+    <div class="guide-body">
+      <section>
+        <h3>1. The Core Philosophy</h3>
+        <p>Before jumping into frameworks, remember that tech stacks are just tools to solve specific problems. Your primary goal when starting out is learning fundamental software engineering concepts, not accumulating framework logos.</p>
+      </section>
+
+      <section>
+        <h3>2. Break Down Your Options</h3>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Traditional / Core PHP</h4>
+            <p>Best for understanding request-response lifecycles, backend logic, and direct database management (MySQL).</p>
+          </div>
+          <div class="stack-card">
+            <h4>Modern JS (React / Node)</h4>
+            <p>Great for dynamic single-page applications (SPAs) and highly interactive user interfaces.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>3. How to Make the Choice</h3>
+        <ul>
+          <li><strong>Building a content-driven website or basic client portal?</strong> Stick to simple, stable, server-rendered setups like Core PHP/Bootstrap.</li>
+          <li><strong>Building a real-time app or API-heavy dashboard?</strong> Consider modern JavaScript stacks.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Popup -->
+<div id="guideModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeGuide()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">Web Development &bull; Alviora Team</span>
+      <h1>Choosing Your First Stack: A Practical Guide</h1>
+      <p class="subtitle">A grounded look at picking tools that match the project, not the trend.</p>
+    </div>
+
+    <div class="guide-body">
+      <section>
+        <h3>1. Focus on Problem-Solving, Not Hype</h3>
+        <p>Before jumping into frameworks, remember that tech stacks are just tools. Your primary goal is learning core software architecture and database design rather than chasing every new JavaScript framework.</p>
+      </section>
+
+      <section>
+        <h3>2. Practical Stack Breakdown</h3>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Core PHP + MySQL</h4>
+            <p>Ideal for solidifying your grasp on HTTP lifecycles, backend logic, routing, and direct relational database management.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Modern Frontend / JS</h4>
+            <p>Great for single-page dynamic interfaces, real-time dashboards, and rich client-side interactivity.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>3. Making the Decision</h3>
+        <ul>
+          <li><strong>Building standard business logic, CRUD systems, or portfolios?</strong> Core PHP + Bootstrap provides maximum stability with low overhead.</li>
+          <li><strong>Building heavy real-time data flows?</strong> Integrate lightweight JS libraries or API endpoints to scale features smoothly.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+</script>
+
+<!-- Modal Component -->
+<div id="guideModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeGuide()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">Web Development &bull; Alviora Team</span>
+      <h1>Choosing Your First Stack: A Practical Guide</h1>
+      <p class="subtitle">A grounded look at picking tools that match the project, not the trend.</p>
+    </div>
+
+    <div class="guide-body">
+      <section>
+        <h3>1. Focus on Problem-Solving</h3>
+        <p>Tech stacks are just tools. Your primary goal is understanding backend architecture, request handling, and databases rather than chasing every new JS framework.</p>
+      </section>
+
+      <section>
+        <h3>2. Practical Stack Options</h3>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Core PHP + MySQL</h4>
+            <p>Best for solidifying your fundamentals: request-response lifecycles, database querying, authentication logic, and custom routing.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Modern Frontend (JS)</h4>
+            <p>Ideal for rich single-page applications, dynamic DOM updates, real-time UI interactions, and API integration.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>3. How to Make the Choice</h3>
+        <ul>
+          <li><strong>Building CRUD apps, dashboards, or standard client portals?</strong> Core PHP + Bootstrap provides high stability with zero runtime overhead.</li>
+          <li><strong>Need reactive interfaces?</strong> Combine lightweight JavaScript with structured backend endpoints to keep the system modular.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Window -->
+<div id="guideModal" class="modal-overlay">
+  <div class="modal-content">
+    <button type="button" class="close-btn" onclick="closeGuide()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">Web Development &bull; Alviora Team</span>
+      <h1>Choosing Your First Stack: A Practical Guide</h1>
+      <p class="subtitle">A grounded look at picking tools that match the project, not the trend.</p>
+    </div>
+
+    <div class="guide-body">
+      <section>
+        <h3>1. Focus on Problem-Solving</h3>
+        <p>Tech stacks are just tools. Your primary goal is understanding backend architecture, request handling, and databases rather than chasing every new JS framework.</p>
+      </section>
+
+      <section>
+        <h3>2. Practical Stack Options</h3>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Core PHP + MySQL</h4>
+            <p>Best for solidifying your fundamentals: request-response lifecycles, database querying, authentication logic, and custom routing.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Modern Frontend (JS)</h4>
+            <p>Ideal for rich single-page applications, dynamic DOM updates, real-time UI interactions, and API integration.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>3. How to Make the Choice</h3>
+        <ul>
+          <li><strong>Building CRUD apps, dashboards, or standard client portals?</strong> Core PHP + Bootstrap provides high stability with zero runtime overhead.</li>
+          <li><strong>Need reactive interfaces?</strong> Combine lightweight JavaScript with structured backend endpoints to keep the system modular.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<style>
+/* CSS Reset for Modal Visibility */
+.modal-overlay {
+  display: none;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(4, 13, 33, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 999999 !important; /* Force on top of header/cards */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex !important;
+}
+
+.modal-content {
+  background: #0b192e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 750px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 36px;
+  color: #e2e8f0;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  text-align: left;
+}
+
+.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+.close-btn:hover { color: #fff; }
+
+.badge {
+  color: #38bdf8;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.guide-header h1 { margin: 10px 0 6px 0; color: #fff; font-size: 24px; }
+.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+.guide-body section { margin-bottom: 20px; }
+.guide-body h3 { color: #38bdf8; margin-bottom: 8px; font-size: 16px; }
+.guide-body p, .guide-body li { font-size: 14px; line-height: 1.6; color: #cbd5e1; }
+
+.stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+.stack-card { background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+.stack-card h4 { color: #fff; margin-bottom: 6px; font-size: 14px; }
+.stack-card p { margin: 0; font-size: 13px; }
+</style>
+
+<script>
+function openGuide() {
+  const modal = document.getElementById('guideModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+}
+
+function closeGuide() {
+  const modal = document.getElementById('guideModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore background scrolling
+  }
+}
+
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('guideModal');
+  if (event.target === modal) {
+    closeGuide();
+  }
+});
+</script>
+
+<!-- Modal 2: AI Guide -->
+<div id="aiGuideModal" class="modal-overlay">
+  <div class="modal-content">
+    <button type="button" class="close-btn" onclick="closeAiGuide()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">AI &bull; Alviora Team</span>
+      <h1>Where AI Actually Helps in Small Projects</h1>
+      <p class="subtitle">Practical, non-hype use cases for AI in student and startup builds.</p>
+    </div>
+
+    <div class="guide-body">
+      <section>
+        <h3>1. The Reality: Practical AI vs. Hype</h3>
+        <p>You don't need expensive LLMs or complex neural networks to add value to a small project. The key is integrating targeted AI capabilities that solve realistic backend or user experience challenges efficiently.</p>
+      </section>
+
+      <section>
+        <h3>2. Best High-Impact Use Cases</h3>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Smart Search & Tagging</h4>
+            <p>Use vector embeddings or simple AI APIs for semantic text search and automatic content categorization instead of plain SQL LIKE queries.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Context-Aware Chatbots</h4>
+            <p>Embed lightweight customer support bots trained strictly on your app's specific FAQ or database schema for automated issue routing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>3. Smart Implementation Rules</h3>
+        <ul>
+          <li><strong>Keep it modular:</strong> Treat AI integrations as isolated API services so your core PHP/JS logic remains stable if an external service goes offline.</li>
+          <li><strong>Optimize costs:</strong> Use light client-side processing or cached responses to prevent unnecessary API token usage.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+function openAiGuide() {
+  const modal = document.getElementById('aiGuideModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeAiGuide() {
+  const modal = document.getElementById('aiGuideModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+window.addEventListener('click', function(event) {
+  const aiModal = document.getElementById('aiGuideModal');
+  if (event.target === aiModal) {
+    closeAiGuide();
+  }
+});
+</script>
+
+<!-- Modal 3: Interview Guide -->
+<div id="interviewGuideModal" class="modal-overlay">
+  <div class="modal-content">
+    <button type="button" class="close-btn" onclick="closeInterviewGuide()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">Interview Prep &bull; Alviora Team</span>
+      <h1>Talking About Your Projects in Interviews</h1>
+      <p class="subtitle">How to explain what you built, and why it mattered.</p>
+    </div>
+
+    <div class="guide-body">
+      <section>
+        <h3>1. Structure Your Story (STAR Method)</h3>
+        <p>Avoid just listing technologies. Frame your projects around the specific technical challenge you faced, the architectural choices you made, and the measurable outcome achieved.</p>
+      </section>
+
+      <section>
+        <h3>2. Practical Interview Answers</h3>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Explain Technical Trade-offs</h4>
+            <p>Demonstrate maturity by explaining why you chose a specific database schema, routing strategy, or UI pattern instead of another popular alternative.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Highlight Problem-Solving</h4>
+            <p>Talk through real bugs or performance bottlenecks you hit during development—such as session state bugs or query bottlenecks—and how you resolved them.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>3. Best Practices for Technical Discussions</h3>
+        <ul>
+          <li><strong>Focus on your individual contribution:</strong> Be explicit about backend models, routing logic, or UI interactions you personally engineered.</li>
+          <li><strong>Keep it concise:</strong> Give a 60-second high-level overview first, then let the interviewer dive deeper into specific architectural details.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+function openInterviewGuide() {
+  const modal = document.getElementById('interviewGuideModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeInterviewGuide() {
+  const modal = document.getElementById('interviewGuideModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+window.addEventListener('click', function(event) {
+  const interviewModal = document.getElementById('interviewGuideModal');
+  if (event.target === interviewModal) {
+    closeInterviewGuide();
+  }
+});
+</script>
+
+<!-- Opportunities Modal -->
+<div id="oppModal" class="modal-overlay">
+  <div class="modal-content opp-modal-box">
+    <button type="button" class="close-btn" onclick="closeOpportunityModal()">&times;</button>
+    
+    <div class="guide-header">
+      <span class="badge">Alviora Tech &bull; Career & Project Tracks</span>
+      <h1>Available Tracks & Opportunities</h1>
+      <p class="subtitle">Select a category to view active listings or submit your profile for partner review.</p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="opp-tabs">
+      <button class="opp-tab active" onclick="switchTab(event, 'projectTrack')">Project Internships</button>
+      <button class="opp-tab" onclick="switchTab(event, 'devTrack')">Web & Tech Roles</button>
+      <button class="opp-tab" onclick="switchTab(event, 'applyTrack')">Direct Application</button>
+    </div>
+
+    <!-- Tab 1: Project Internships -->
+    <div id="projectTrack" class="opp-tab-content active">
+      <div class="track-list">
+        <div class="track-item">
+          <div>
+            <h4>Full-Stack Web Architecture</h4>
+            <p>Core PHP, MySQL, dynamic database mapping & session personalizations.</p>
+          </div>
+          <span class="status-badge open">Active Openings</span>
+        </div>
+        <div class="track-item">
+          <div>
+            <h4>Frontend UI/UX Systems</h4>
+            <p>Clean magazine layouts, luxury glassmorphic cards, and responsive grids.</p>
+          </div>
+          <span class="status-badge open">Active Openings</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Web & Tech Roles -->
+    <div id="devTrack" class="opp-tab-content">
+      <div class="track-list">
+        <div class="track-item">
+          <div>
+            <h4>Backend Systems & DB Engineering</h4>
+            <p>Schema standardization, complex query management, and API endpoints.</p>
+          </div>
+          <span class="status-badge review">Partner Reviewing</span>
+        </div>
+        <div class="track-item">
+          <div>
+            <h4>AI Solutions & Custom Chatbots</h4>
+            <p>Lightweight AI integrations, prompt architecture, and smart search APIs.</p>
+          </div>
+          <span class="status-badge open">Active Openings</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Direct Application Form -->
+    <div id="applyTrack" class="opp-tab-content">
+      <form action="https://formspree.io/f/xwlejjkz" method="POST" class="opp-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-group">
+          <select name="track_interest" required>
+            <option value="" disabled selected>Select Preferred Track</option>
+            <option value="Full-Stack Web Development">Full-Stack Web Development</option>
+            <option value="AI Integration & Automation">AI Integration & Automation</option>
+            <option value="Frontend UI/UX Engineering">Frontend UI/UX Engineering</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea name="portfolio_links" rows="3" placeholder="Portfolio / GitHub / LinkedIn Links" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<style>
+/* Additional Tabbed Modal Styling */
+.opp-modal-box {
+  max-width: 820px !important;
+}
+
+.opp-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}
+
+.opp-tab {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.opp-tab:hover, .opp-tab.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+}
+
+.opp-tab-content {
+  display: none;
+}
+
+.opp-tab-content.active {
+  display: block;
+}
+
+/* Track Items */
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.track-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.track-item h4 {
+  color: #fff;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.track-item p {
+  color: #94a3b8;
+  font-size: 13px;
+  margin: 0;
+}
+
+.status-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.open {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.status-badge.review {
+  background: rgba(251, 146, 60, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+/* Application Form */
+.opp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  gap: 14px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group select option {
+  background: #0b192e;
+  color: #fff;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #38bdf8;
+}
+
+.btn-submit {
+  background: #38bdf8;
+  color: #0b192e;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}
+</style>
+
+<script>
+function openOpportunityModal() {
+  const modal = document.getElementById('oppModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeOpportunityModal() {
+  const modal = document.getElementById('oppModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function switchTab(evt, tabName) {
+  const contents = document.querySelectorAll('.opp-tab-content');
+  contents.forEach(c => c.classList.remove('active'));
+
+  const tabs = document.querySelectorAll('.opp-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+
+  document.getElementById(tabName).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+window.addEventListener('click', function(event) {
+  const oppModal = document.getElementById('oppModal');
+  if (event.target === oppModal) {
+    closeOpportunityModal();
+  }
+});
+</script>
+</body>
+</html>
